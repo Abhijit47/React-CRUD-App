@@ -1,24 +1,24 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './Components/Dashboard/Dashboard';
 import NavbarComponent from './Components/Navbar/Navbar';
-import Create from './Components/Pages/CreateUser';
-import Edit from './Components/Pages/EditUser';
-import Update from './Components/Pages/UpdateUser';
+import CreateUser from './Components/Pages/CreateUser';
+import EditUser from './Components/Pages/EditUser';
 import Profile from './Components/Pages/Profile';
 
 const App = () => {
   return (
     <>
-      <NavbarComponent />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path='/create' element={<Create />} />
-        <Route path='/edit/:id' element={<Edit />} />
-        <Route path='/update/:id' element={<Update />} />
-        <Route path='/profile' element={<Profile />} />
-      </Routes>
+      <BrowserRouter>
+        <NavbarComponent />
+        <Routes>
+          <Route path="/" Component={Dashboard} />
+          <Route path='/create' Component={CreateUser} />
+          <Route path='/edit/:id' Component={EditUser} />
+          <Route path='/profile/:id' Component={Profile} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
